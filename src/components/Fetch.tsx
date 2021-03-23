@@ -14,7 +14,7 @@ interface INews {
 }
 
 const Fetch = ({ country, category }: SearchProps) => {
-  const [news, setNews] = useState<object[]>();
+  const [news, setNews] = useState<object[] | any>();
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
@@ -36,20 +36,20 @@ const Fetch = ({ country, category }: SearchProps) => {
       });
   }, [country, category, pageNumber]);
 
-  const handleScroll = (e: any) => {
-    const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
-    console.log(scrollTop, "scroll top");
-    console.log(clientHeight, "clientHeight");
-    console.log(scrollHeight, "scrollHeight");
-    if (scrollHeight - (clientHeight + scrollTop) === 0) {
-      setPageNumber(2);
-      // setLoading(true);
+  // const handleScroll = (e: any) => {
+  //   const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
+  //   // console.log(scrollTop, "scroll top");
+  //   // console.log(clientHeight, "clientHeight");
+  //   // console.log(scrollHeight, "scrollHeight");
+  //   // if (scrollHeight - (clientHeight + scrollTop) === 0) {
+  //   //   setPageNumber(prev => prev + 1);
+  //   //   setLoading(true);
 
-    }
-  };
+  //   // }
+  // };
 
   return (
-    <div onScroll={handleScroll} style={{ overflow: "auto", height: "100vh" }}>
+    <div  style={{ overflow: "auto", height: "100vh" }}>
       {loading && "Loading...👴"}
       {error && "Error...👷‍♂️"}
 

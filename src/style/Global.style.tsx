@@ -8,15 +8,22 @@ const GlobalStyle = createGlobalStyle`
   box-sizing:border-box;
 }
 body{
-  /* font-family: "Consolas-Normal", sans-serif;  */
+   font-family: 'JetBrains Mono', monospace;
+
   font-size:62,5%;
 }
 
 
-/* @font-face {
-  font-family: "Consolas-Normal";
-  src: url("../Fonts/consola.woff") format("woff"),
-      url("../Fonts/consola.ttf") format("truetype");
-} */
+h1{
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 4rem;
+}
+option{
+  font-size:1rem;
+   text-align:center;
+   font-weight:600;
+   
+ }
 `
+
 export default GlobalStyle;

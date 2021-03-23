@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-scripts": "4.0.3",
     "styled-components": "^5.2.1",
     "typescript": "^4.2.3",
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.2"
+    "@types/react-dom": "^17.0.2",
+    "@types/react-lazy-load-image-component": "^1.5.1"
   }
 }
