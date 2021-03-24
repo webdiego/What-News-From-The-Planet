@@ -5,7 +5,8 @@ let dark=  {
     border: "#E6DBB6",
     backgroundSelect: "#3F424D",
     backgroundToggle:"#3F424D",
-    
+    backgroundButton:"#E6DBB6",
+    textButton: "#3F424D",
   }
 };
 

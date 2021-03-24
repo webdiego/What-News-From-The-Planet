@@ -6,6 +6,8 @@ let light =  {
     border: "#2E3420",
     backgroundSelect: "#e5e5e5",
     backgroundToggle:"#e5e5e5",
+    backgroundButton:"#2E3440",
+    textButton: "#ECEFF1",
   }
 };
 
