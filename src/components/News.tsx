@@ -9,23 +9,25 @@ interface INews {
   Img?: string;
   Dates?:string;
   Author?:string;
-  Index:number
+  Link?:string;
 }
-function News({ Title, Description, Img ,Dates,Author ,Index}: INews) {
+function News({ Title, Description, Img ,Dates,Author,Link }: INews) {
+   console.log(typeof Dates)
   return (
     <ContainerNews>
-      <h3>{Title}</h3>
-      <p>{Dates}</p>
-      <p>{Description}</p>
+      <TitleNews>{Title}</TitleNews>
+      <DateNews><InfoSpan>Date:</InfoSpan>{Dates?.slice(0,10)} <InfoSpan>at</InfoSpan> {Dates?.slice(11,16)}</DateNews>
+      <ContentNews>{Description}</ContentNews>
       <LazyLoadImage
         style={{ width: "20rem", height: "12rem", objectFit: "cover" }}
-        src={Img ? Img : World}
+        src={Img && Img ? Img : World}
         alt=""
         effect="blur"
       />
-      <h2>{Author}</h2>
-      <p>{Index}</p>
-      
+      <div style={{display:"flex" , justifyContent:"space-between"}}>
+      <p><InfoSpan>Source:</InfoSpan>{Author}</p>      
+      <p><InfoSpan>Read the full article:</InfoSpan> <a href={Link}>Link</a></p>      
+      </div>
     </ContainerNews>
     
   );
@@ -36,6 +38,20 @@ const ContainerNews = styled.div`
   border: 2px solid ${(props) => props.theme.colors.border};
   margin: 2rem 0;
   padding: 2rem;
-  width:80%;
-  
+  width:100%;
+  background-color: ${(props) => props.theme.colors.backgroundSelect};
 `;
+const TitleNews = styled.h2`
+margin:1rem 0;
+
+`
+const DateNews = styled.p`
+margin:1rem 0;
+
+`
+const ContentNews = styled.p`
+margin:1rem 0;
+`
+const InfoSpan = styled.span`
+font-weight:bold;
+`

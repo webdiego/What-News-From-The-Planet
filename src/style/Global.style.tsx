@@ -23,6 +23,7 @@ option{
    text-align:center;
    font-weight:600;
    
+   
  }
 `
 

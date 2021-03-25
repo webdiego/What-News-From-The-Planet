@@ -15,6 +15,7 @@ interface INews {
   urlToImage?: string;
   publishedAt?: string;
   author?: string;
+  url?:string;
 }
 
 const Fetch = ({ country, category }: SearchProps) => {
@@ -23,7 +24,7 @@ const Fetch = ({ country, category }: SearchProps) => {
   const [error, setError] = useState<boolean>(false);
   const [loading, setLoading]=useState<boolean>(false);
   const [ hasMore, setHasMore]  =useState<boolean>(true);
-  
+
   const fetchNews = async () => {
     try {
       const apiCall = await fetch(
@@ -44,25 +45,25 @@ const Fetch = ({ country, category }: SearchProps) => {
     fetchNews();
     
   }, [pageNumber]);
-
+ 
   console.log(news.length);
   return (
     <div style={{ overflow: "auto", height: "100%" }}>
       {error && "Error...👷‍♂️"}
-       {loading && <h2 style={{ height: "100vh" }}>"Loading...👴🚗"</h2>} 
+       {/* {loading && <h2 style={{ height: "100vh" }}>"Loading...👴🚗"</h2>}  */}
 
       {news &&  (
-        <div>
+        <div >
           <h2>Top Headlines</h2>
           <InfiniteScroll
             dataLength={news.length}
             next={() => setPageNumber((prev) => prev + 1)}
             hasMore={hasMore}
-            loader={"Loading...👴"}
+            loader={<h2 style={{ height: "100vh" }}>"Loading...👴🚗"</h2>}
             scrollThreshold={.8}
             endMessage={
               <p style={{ textAlign: "center" }}>
-                <b>Yay! You have seen it all</b>
+                <b>😵Yay! You have seen it all</b>
               </p>
             }
           >
@@ -75,7 +76,7 @@ const Fetch = ({ country, category }: SearchProps) => {
                   Img={a.urlToImage}
                   Dates={a.publishedAt}
                   Author={a.author}
-                   Index={index}
+                   Link={a.url}
                 />
               );
             })}
