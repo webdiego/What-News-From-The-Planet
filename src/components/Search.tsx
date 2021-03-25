@@ -9,7 +9,9 @@ function Search() {
   const [country, setCountry] = useState<string>("it");
   const [category, setCategory] = useState<string>("general");
   const [mode, setMode] = useState<string>("Light");
-  const [toggle,setToggle] =useState<boolean>(true)
+  const [toggle,setToggle] =useState<boolean>(false)
+
+  
   return (
     <ThemeProvider theme={mode === "Dark" ? Dark : Light} >
       <Container  >
@@ -26,7 +28,7 @@ function Search() {
         <ContainerSelect>
           {/* COUNTRY */}
           <LabelStyle>Country</LabelStyle>
-          <SelectStyle value={country} onChange={(e) => setCountry(e.target.value)}>
+          <SelectStyle value={country} onChange={(e) => {setCountry(e.target.value ); setToggle(false)} }>
             <option value="it">Italy </option>
             <option value="de">Germany</option>
             <option value="us">USA</option>
@@ -54,7 +56,7 @@ function Search() {
           </SelectStyle>
           {/* CATEGORY */}
           <LabelStyle>Category</LabelStyle>
-          <SelectStyle value={category} onChange={(e) => setCategory(e.target.value)}>
+          <SelectStyle value={category} onChange={(e) => {setCategory(e.target.value);setToggle(false)} }>
             <option value="business">Business 💰</option>
             <option value="entertainment">Entertainment 📺</option>
             <option value="general">General 🧵</option>
@@ -67,6 +69,9 @@ function Search() {
         <ButtonSearch onClick={()=>setToggle(!toggle)}>Search 🧭</ButtonSearch>
         {toggle && (
          <Fetch country={country} category={category} /> 
+        )}
+        {!toggle && (
+          <div style={{height:"100vh"}}></div>
         )}
       </Container>
     </ThemeProvider>
@@ -129,4 +134,5 @@ const ButtonSearch = styled.button`
  color: ${(props) => props.theme.colors.textButton};
   background-color: ${(props) => props.theme.colors.backgroundButton};
   border: 3px solid ${(props) => props.theme.colors.border};
+  cursor:pointer;
 `

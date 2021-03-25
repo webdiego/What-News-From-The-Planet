@@ -13,74 +13,75 @@ interface INews {
   title?: string;
   description?: string;
   urlToImage?: string;
-  publishedAt?:string;
-  source?:string;
+  publishedAt?: string;
+  author?: string;
 }
 
 const Fetch = ({ country, category }: SearchProps) => {
-  const [news, setNews] = useState<object[]>([]);
+  const [news, setNews] = useState<any[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const [hasMore, setHasMore]= useState<boolean>(true)
-  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading]=useState<boolean>(false);
+  const [ hasMore, setHasMore]  =useState<boolean>(true);
   
+  const fetchNews = async () => {
+    try {
+      const apiCall = await fetch(
+        `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API2}&page=${pageNumber}`
+      );
+      
+      const data = await apiCall.json();
+      console.log(data)
+      setNews([...news, ...data.articles]);
+      if(data.totalResults === news.length) setHasMore(false)
+    } catch (err) {
+      if (err) setError(true);
+    }
+  };
+
   useEffect(() => {
-    setLoading(true);
-    setError(false);
-    axios({
-      method: "GET",
-      url: `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API2}&page=${pageNumber}`,
-    })
-    .then((res) => {
-      console.log(res);
-      let TotalResult = res.data.totalResults
-        let LengthNews = res.data.articles.length
-        if((TotalResult - LengthNews) > 0){
-          setHasMore(true)
-        }
-         if((TotalResult - LengthNews) > 0 ){
-           setHasMore(false)
-         }
-        const articles = res.data.articles
-        setNews([...articles,articles]);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(true);
-      });
-    }, [country, category, pageNumber]);
-    console.log(news)
-  
+    
+    fetchNews();
+    
+  }, [pageNumber]);
+
+  console.log(news.length);
   return (
     <div style={{ overflow: "auto", height: "100%" }}>
-      
-      {error && "Error...👷‍♂️"} 
+      {error && "Error...👷‍♂️"}
+       {loading && <h2 style={{ height: "100vh" }}>"Loading...👴🚗"</h2>} 
 
-      {news && !loading && (
+      {news &&  (
         <div>
           <h2>Top Headlines</h2>
-          <InfiniteScroll 
-          dataLength={news.length} 
-          next={()=>setPageNumber(prev=> prev +1 )}
-          hasMore={hasMore}
-          loader={"Loading...👴"}
-          scrollThreshold={.98}
-          endMessage={
-            <p style={{ textAlign: 'center' }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
+          <InfiniteScroll
+            dataLength={news.length}
+            next={() => setPageNumber((prev) => prev + 1)}
+            hasMore={hasMore}
+            loader={"Loading...👴"}
+            scrollThreshold={.8}
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
           >
             {news.map((a: INews, index: number) => {
-              
               return (
-                <News key={index} Title={a.title} Description={a.description} Img={a.urlToImage} Date={a.publishedAt} Source={a.source}/>
+                <News
+                  key={index}
+                  Title={a.title}
+                  Description={a.description}
+                  Img={a.urlToImage}
+                  Dates={a.publishedAt}
+                  Author={a.author}
+                   Index={index}
+                />
               );
             })}
           </InfiniteScroll>
         </div>
       )}
-       {loading && "Loading...👴"}
     </div>
   );
 };

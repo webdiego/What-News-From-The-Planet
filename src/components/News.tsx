@@ -7,21 +7,27 @@ interface INews {
   Title?: string;
   Description?: string;
   Img?: string;
-  Date?:string;
-  Source?:string;
+  Dates?:string;
+  Author?:string;
+  Index:number
 }
-function News({ Title, Description, Img }: INews) {
+function News({ Title, Description, Img ,Dates,Author ,Index}: INews) {
   return (
     <ContainerNews>
       <h3>{Title}</h3>
+      <p>{Dates}</p>
       <p>{Description}</p>
       <LazyLoadImage
-        style={{ width: "20rem", height: "12rem", objectFit: "fill" }}
+        style={{ width: "20rem", height: "12rem", objectFit: "cover" }}
         src={Img ? Img : World}
         alt=""
         effect="blur"
       />
+      <h2>{Author}</h2>
+      <p>{Index}</p>
+      
     </ContainerNews>
+    
   );
 }
 
