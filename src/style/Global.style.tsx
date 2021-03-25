@@ -1,5 +1,5 @@
-import "styled-components"
-import { createGlobalStyle } from "styled-components"
+import "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -12,8 +12,6 @@ body{
 
   font-size:62,5%;
 }
-
-
 h1{
   font-family: 'Share Tech Mono', monospace;
   font-size: 4rem;
@@ -21,10 +19,17 @@ h1{
 option{
   font-size:1rem;
    text-align:center;
-   font-weight:600;
-   
-   
+   font-weight:600; 
  }
-`
+ img{
+  width: 100%;
+  height: 22rem;
+  object-fit: contain;
+ 
+  @media (max-width: 600px){
+  height:11rem;
+  }
+ }
+`;
 
 export default GlobalStyle;

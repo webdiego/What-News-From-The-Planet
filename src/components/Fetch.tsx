@@ -1,5 +1,3 @@
-import axios from "axios";
-// import { url } from "node:inspector";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -22,7 +20,6 @@ const Fetch = ({ country, category }: SearchProps) => {
   const [news, setNews] = useState<any[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [error, setError] = useState<boolean>(false);
-  const [loading, setLoading]=useState<boolean>(false);
   const [ hasMore, setHasMore]  =useState<boolean>(true);
 
   const fetchNews = async () => {
@@ -59,7 +56,7 @@ const Fetch = ({ country, category }: SearchProps) => {
             dataLength={news.length}
             next={() => setPageNumber((prev) => prev + 1)}
             hasMore={hasMore}
-            loader={<h2 style={{ height: "100vh" }}>"Loading...👴🚗"</h2>}
+            loader={<h2 style={{ height: "100vh",marginTop:"5rem" }}>"Loading...👴🚗"</h2>}
             scrollThreshold={.8}
             endMessage={
               <p style={{ textAlign: "center" }}>

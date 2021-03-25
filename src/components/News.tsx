@@ -11,6 +11,7 @@ interface INews {
   Author?:string;
   Link?:string;
 }
+
 function News({ Title, Description, Img ,Dates,Author,Link }: INews) {
    console.log(typeof Dates)
   return (
@@ -19,15 +20,15 @@ function News({ Title, Description, Img ,Dates,Author,Link }: INews) {
       <DateNews><InfoSpan>Date:</InfoSpan>{Dates?.slice(0,10)} <InfoSpan>at</InfoSpan> {Dates?.slice(11,16)}</DateNews>
       <ContentNews>{Description}</ContentNews>
       <LazyLoadImage
-        style={{ width: "20rem", height: "12rem", objectFit: "cover" }}
-        src={Img && Img ? Img : World}
+        
+        src={Img  ? Img : World}
         alt=""
         effect="blur"
       />
-      <div style={{display:"flex" , justifyContent:"space-between"}}>
-      <p><InfoSpan>Source:</InfoSpan>{Author}</p>      
+      <InfoContainer>
+      <p><InfoSpan>Author:</InfoSpan>{Author ? Author : 'Author Not Available'}</p>      
       <p><InfoSpan>Read the full article:</InfoSpan> <a href={Link}>Link</a></p>      
-      </div>
+      </InfoContainer>
     </ContainerNews>
     
   );
@@ -55,3 +56,13 @@ margin:1rem 0;
 const InfoSpan = styled.span`
 font-weight:bold;
 `
+const InfoContainer = styled.div`
+ display:flex;
+justify-content:space-between;
+margin-top:2rem;
+
+@media (max-width: 1068px) {
+    flex-direction: column;
+  }
+`
+

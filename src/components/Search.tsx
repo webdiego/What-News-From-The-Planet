@@ -79,7 +79,6 @@ function Search() {
             </SelectStyle>
             <ButtonSearch onClick={() => setToggle(!toggle)}>Search 🧭</ButtonSearch>
           </ContainerSelect>
-          <img src="../img/world.png" alt=""/>
         </SearchBar>
         <ContainerFetch >
 
@@ -116,6 +115,7 @@ const SearchBar = styled.div`
   width: 21rem;
   height:100%;
   position:fixed;
+ 
   @media (max-width: 1068px) {
     flex-direction: column;
     width:100%;
@@ -156,7 +156,7 @@ const SelectStyle = styled.select`
   font-size: 1.3rem;
   text-align: center;
    padding: 0.2rem 1rem; 
-  width:14rem;
+  width:18rem;
   color: ${(props) => props.theme.colors.textColor};
   background-color: ${(props) => props.theme.colors.backgroundSelect};
   border: 3px solid ${(props) => props.theme.colors.border};
@@ -182,8 +182,9 @@ const ButtonSearch = styled.button`
   background-color: ${(props) => props.theme.colors.backgroundButton};
   border: 3px solid ${(props) => props.theme.colors.border};
   cursor: pointer;
+  margin-top:2rem;
 `;
-
+//Container Fetch/Presentation
 const ContainerHello = styled.div`
   color: ${(props) => props.theme.colors.textColor};
   background-color: ${(props) => props.theme.colors.backgroundColor};
