@@ -13,7 +13,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [What? News from the planet](https://what-news-from-the-planet.netlify.app/)
 
 ## My process
 First I've drawn the project from scratch using Adobe XD. 
