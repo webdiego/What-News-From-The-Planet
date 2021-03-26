@@ -107,6 +107,7 @@ const Container = styled.div`
   @media (max-width: 1068px) {
     flex-direction: column;
     position:relative;
+    padding:1rem;
   }
 `;
 const SearchBar = styled.div`

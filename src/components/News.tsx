@@ -23,7 +23,7 @@ function News({ Title, Description, Img ,Dates,Author,Link }: INews) {
       <DateNews><InfoSpan>Date:</InfoSpan> {Dates?.slice(0,10)} <InfoSpan>at</InfoSpan> {Dates?.slice(11,16)}</DateNews>
       <LazyLoadImage
         
-        src={NotFound2}
+        src={Img ? Img :NotFound2}
         alt=""
         effect="blur"
       />

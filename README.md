@@ -9,7 +9,7 @@ Users should be able to:
 
 ![Light Mode](src/img/lightmode.png)
 ![Dark Mode](src/img/darkmode.png)
-![Design/Logic](src/img/Prototype.png)
+![Design/Logic](src/img/Layout.png)
 
 ### Links
 
@@ -17,25 +17,29 @@ Users should be able to:
 
 ## My process
 First I've drawn the project from scratch using Adobe XD. 
-I've designed the layout and the logic of my app ; so important when you are using react components.
+I've designed the layout and the logic of my app ; very important when you are using react components.
+Also I was able to practice using React and Typescript,my learning subjects.
 
 ### Built with
 
-- [TypeScript]
+- [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
 I've learned how is important make a good work plan before coding.
-In the technical part I've learned how to manage useEffect that create the infinite loops side-effect.
+In the technical part I've learned how to manage useEffect that create the infinite loops side-effect and first of all practising React and Typescript my subject of learning.
 
 ### Useful resources
 
 Api used:
 - [NewsApi](https://newsapi.org/) 
+
+Npm used:
+- [React - Lazy Load](https://www.npmjs.com/package/react-lazy-load-image-component) 
+- [React - Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) 
 
 ## Author
 

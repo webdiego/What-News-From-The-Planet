@@ -17,7 +17,7 @@ interface INews {
 }
 
 const Fetch = ({ country, category }: SearchProps) => {
-  const [news, setNews] = useState<any[]>([]);
+  const [news, setNews] = useState<object[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [error, setError] = useState<boolean>(false);
   const [ hasMore, setHasMore]  =useState<boolean>(true);
@@ -64,16 +64,16 @@ const Fetch = ({ country, category }: SearchProps) => {
               </p>
             }
           >
-            {news.map((a: INews, index: number) => {
+            {news.map((Element: INews, index: number) => {
               return (
                 <News
                   key={index}
-                  Title={a.title}
-                  Description={a.description}
-                  Img={a.urlToImage}
-                  Dates={a.publishedAt}
-                  Author={a.author}
-                   Link={a.url}
+                  Title={Element.title}
+                  Description={Element.description}
+                  Img={Element.urlToImage}
+                  Dates={Element.publishedAt}
+                  Author={Element.author}
+                   Link={Element.url}
                 />
               );
             })}
