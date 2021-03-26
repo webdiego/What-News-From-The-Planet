@@ -15,6 +15,8 @@ Users should be able to:
 
 - Live Site URL: [What? News from the planet](https://what-news-from-the-planet.netlify.app/)
 
+## > UNFORTUNATELY THE WEBSITE CAN ONLY SHOW NEWS THROUGH AN API PAID PLAN, IF YOU ARE INTERESTED IN SEEING THE COMPLETE PROJECT YOU CAN CLONE IT ON YOUR TERMINAL WHERE THE DEVELOPMENT API IS AVAILABLE INSIDE.
+
 ## My process
 First I've drawn the project from scratch using Adobe XD. 
 I've designed the layout and the logic of my app ; very important when you are using react components.

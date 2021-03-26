@@ -25,7 +25,7 @@ const Fetch = ({ country, category }: SearchProps) => {
   const fetchNews = async () => {
     try {
       const apiCall = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API2}&page=${pageNumber}`
+        `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=f26d8881a3e5447cb2fb16ce5cc0cd9e&page=${pageNumber}`
       );
       
       const data = await apiCall.json();
