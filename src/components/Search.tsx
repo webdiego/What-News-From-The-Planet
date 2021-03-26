@@ -6,7 +6,7 @@ import Light from "../themes/Light";
 import Dark from "../themes/Dark";
 
 function Search() {
-  const [country, setCountry] = useState<string>("it");
+  const [country, setCountry] = useState<string>("au");
   const [category, setCategory] = useState<string>("general");
   const [mode, setMode] = useState<string>("Light");
   const [toggle, setToggle] = useState<boolean>(false);
@@ -69,12 +69,12 @@ function Search() {
                 setToggle(false);
               }}
             >
-              <option value="business">Business 💰</option>
-              <option value="entertainment">Entertainment 📺</option>
               <option value="general">General 🧵</option>
               <option value="science">Science 🔬</option>
               <option value="sports">Sports 🚵‍♀️</option>
               <option value="technology">Technology 👨‍💻</option>
+              <option value="business">Business 💰</option>
+              <option value="entertainment">Entertainment 📺</option>
               <option value="health">Health 🧡</option>
             </SelectStyle>
             <ButtonSearch onClick={() => setToggle(!toggle)}>Search 🧭</ButtonSearch>
